@@ -46,8 +46,8 @@ export default function ScheduleSection() {
     <section className="py-20 relative bg-ocean-50/30" id="courses">
       <div className="container mx-auto px-4">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, translateY: 20 }}
+          whileInView={{ opacity: 1, translateY: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
@@ -63,7 +63,7 @@ export default function ScheduleSection() {
               rel="noopener noreferrer"
               className="text-athletic-primary hover:text-ocean-600 transition-colors underline decoration-ocean-200 underline-offset-4 hover:decoration-ocean-600"
             >
-              Zwembad 't Zeepaardje, Vilvoorde
+              Zwembad &apos;t Zeepaardje, Vilvoorde
             </a>
           </p>
         </motion.div>
@@ -78,8 +78,8 @@ export default function ScheduleSection() {
             return (
               <motion.div
                 key={period.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, translateY: 20 }}
+                whileInView={{ opacity: 1, translateY: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.2 }}
                 className="bg-white rounded-2xl shadow-ocean overflow-hidden border-2 border-transparent hover:border-ocean-200 transition-colors flex flex-col h-full"
@@ -122,7 +122,7 @@ export default function ScheduleSection() {
                           rel="noopener noreferrer"
                           className="hover:text-athletic-primary transition-colors underline decoration-ocean-200 underline-offset-4 hover:decoration-athletic-primary"
                         >
-                          zwembad 't Zeepaardje, Vilvoorde
+                          zwembad &apos;t Zeepaardje, Vilvoorde
                         </a>
                       </div>
                       <div className="flex items-start gap-3">
@@ -147,22 +147,22 @@ export default function ScheduleSection() {
                   </div>
 
                   <div className="pt-8 space-y-3">
-                    {!isAnyOpen ? (
-                      isFuture ? (
-                        <div className="block w-full bg-ocean-50 text-athletic-primary px-4 py-3 rounded-lg font-display font-semibold text-center border-2 border-ocean-100">
-                          Inschrijvingen openen binnenkort
+                    {!isAnyOpen && isFuture && (
+                      <div className="block w-full bg-ocean-50 text-athletic-primary px-4 py-3 rounded-lg font-display font-semibold text-center border-2 border-ocean-100">
+                        Inschrijvingen openen binnenkort
+                      </div>
+                    )}
+                    {!isAnyOpen && !isFuture && (
+                      <>
+                        <div className="block w-full bg-gray-100 text-gray-400 px-4 py-3 rounded-lg font-display font-semibold text-center border-2 border-gray-200 cursor-not-allowed">
+                          Maandag: Volzet
                         </div>
-                      ) : (
-                        <>
-                          <div className="block w-full bg-gray-100 text-gray-400 px-4 py-3 rounded-lg font-display font-semibold text-center border-2 border-gray-200 cursor-not-allowed">
-                            Maandag: Volzet
-                          </div>
-                          <div className="block w-full bg-gray-100 text-gray-400 px-4 py-3 rounded-lg font-display font-semibold text-center border-2 border-gray-200 cursor-not-allowed">
-                            Woensdag: Volzet
-                          </div>
-                        </>
-                      )
-                    ) : (
+                        <div className="block w-full bg-gray-100 text-gray-400 px-4 py-3 rounded-lg font-display font-semibold text-center border-2 border-gray-200 cursor-not-allowed">
+                          Woensdag: Volzet
+                        </div>
+                      </>
+                    )}
+                    {isAnyOpen && (
                       <>
                         {isMondayOpen ? (
                           <a

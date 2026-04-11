@@ -22,12 +22,14 @@ export default function ProgramSection() {
     },
   ]
 
+  const ANIMATION_STAGGER_DELAY = 0.2
+
   return (
     <section className="py-20 relative" id="programma">
       <div className="container mx-auto px-4">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, translateY: 20 }}
+          whileInView={{ opacity: 1, translateY: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
@@ -45,10 +47,10 @@ export default function ProgramSection() {
           {features.map((feature, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, translateY: 20 }}
+              whileInView={{ opacity: 1, translateY: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
+              transition={{ duration: 0.6, delay: index * ANIMATION_STAGGER_DELAY }}
               className="bg-white rounded-xl p-8 shadow-ocean hover:shadow-athletic transition-all duration-300 hover:scale-105"
             >
               <div className="text-5xl mb-4">{feature.icon}</div>

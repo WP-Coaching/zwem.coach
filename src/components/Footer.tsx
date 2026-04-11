@@ -87,7 +87,7 @@ export default function Footer() {
             <div>
               <h4 className="font-display font-semibold mb-3">Locatie</h4>
               <p className="text-gray-400 text-sm">
-                Zwembad 't Zeepaardje
+                Zwembad &apos;t Zeepaardje
                 <br />
                 Heldenplein 13
                 <br />
