@@ -8,8 +8,8 @@ export default function CoachesSection() {
     <section className="py-20 bg-white relative" id="coaches">
       <div className="container mx-auto px-4">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, translateY: 20 }}
+          whileInView={{ opacity: 1, translateY: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
@@ -25,8 +25,8 @@ export default function CoachesSection() {
         <div className="max-w-6xl mx-auto space-y-16">
           {/* Pieter Timmers */}
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, translateX: -20 }}
+            whileInView={{ opacity: 1, translateX: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
             className="grid md:grid-cols-2 gap-12 items-center"
@@ -95,8 +95,8 @@ export default function CoachesSection() {
 
           {/* Ward Pellegrims */}
           <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, translateX: 20 }}
+            whileInView={{ opacity: 1, translateX: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
             className="grid md:grid-cols-2 gap-12 items-center"
@@ -150,8 +150,9 @@ export default function CoachesSection() {
                     Of je nu je crawltechniek wil leren of verfijnen, of
                     traint voor je eerste triatlon, Ward brengt de inzichten van
                     Olympisch niveau naar jouw training. Hij gelooft niet in een
-                    'one-size-fits-all' methode, maar in de kracht van
+                    &apos;one-size-fits-all&apos; methode, maar in de kracht van
                     technische perfectie en een gepersonaliseerde trainingsaanpak.
+
                   </p>
                 </div>
               </div>

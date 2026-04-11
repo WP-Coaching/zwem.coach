@@ -21,6 +21,7 @@
     "react-dom": "^19.0.0"
   },
   "devDependencies": {
+    "@pellegrims/eslint-config-base": "^2.2.2",
     "@playwright/test": "^1.56.1",
     "@types/node": "^20",
     "@types/react": "^19",

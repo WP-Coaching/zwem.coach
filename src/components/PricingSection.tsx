@@ -22,8 +22,8 @@ export default function PricingSection() {
     <section className="py-20 bg-white relative" id="prijs">
       <div className="container mx-auto px-4">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, translateY: 20 }}
+          whileInView={{ opacity: 1, translateY: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
@@ -35,11 +35,12 @@ export default function PricingSection() {
 
         <div className="max-w-4xl mx-auto">
 
+
           <div className="grid md:grid-cols-2 gap-8">
             {/* Required Gear */}
             <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, translateX: -20 }}
+              whileInView={{ opacity: 1, translateX: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
               className="bg-white border-2 border-ocean-200 rounded-xl p-8"
@@ -62,8 +63,8 @@ export default function PricingSection() {
 
             {/* Starter Package */}
             <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, translateX: 20 }}
+              whileInView={{ opacity: 1, translateX: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
               className="bg-ocean-50 border-2 border-athletic-accent rounded-xl p-8"

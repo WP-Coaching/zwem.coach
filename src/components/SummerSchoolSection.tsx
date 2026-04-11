@@ -27,8 +27,8 @@ export default function SummerSchoolSection() {
     <section className="py-20 bg-ocean-50 relative" id="summer-school">
       <div className="container mx-auto px-4">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, translateY: 20 }}
+          whileInView={{ opacity: 1, translateY: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
@@ -47,8 +47,8 @@ export default function SummerSchoolSection() {
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8">
           {/* Indoor Program */}
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, translateX: -20 }}
+            whileInView={{ opacity: 1, translateX: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
             className="flex flex-col h-full bg-white rounded-2xl shadow-ocean overflow-hidden border-2 border-transparent hover:border-ocean-200 transition-colors"
@@ -74,7 +74,7 @@ export default function SummerSchoolSection() {
                   <p className="flex items-start gap-3">
                     <span className="shrink-0 w-6 h-6 flex items-center justify-center text-xl">📍</span>
                     <a href="https://www.google.com/maps/search/?api=1&query=Zwembad+%27t+Zeepaardje%2C+Vilvoorde" target="_blank" rel="noopener noreferrer" className="hover:text-athletic-accent hover:underline transition-colors">
-                      Zwembad 't Zeepaardje, Vilvoorde
+                      Zwembad &apos;t Zeepaardje, Vilvoorde
                     </a>
                   </p>
                   <p className="flex items-start gap-3">
@@ -128,8 +128,8 @@ export default function SummerSchoolSection() {
 
           {/* Open Water Program */}
           <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, translateX: 20 }}
+            whileInView={{ opacity: 1, translateX: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
             className="flex flex-col h-full bg-white rounded-2xl shadow-ocean overflow-hidden border-2 border-transparent hover:border-athletic-accent transition-colors relative"

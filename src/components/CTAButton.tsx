@@ -27,7 +27,7 @@ export default function CTAButton() {
     }
   ]
 
-  const isAnyOpen = periods.some(p => !!p.mondayLink || !!p.wednesdayLink)
+  const isAnyOpen = periods.some(period => !!period.mondayLink || !!period.wednesdayLink)
 
   return (
     <motion.button

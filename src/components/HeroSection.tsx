@@ -5,41 +5,38 @@ import { useState, useEffect, useRef } from 'react'
 import Image from 'next/image'
 import CTAButton from './CTAButton'
 
+const VIDEO_LOAD_TIMEOUT = 5000
+const SCROLL_INDICATOR_Y_RANGE = [0, 5, 0]
+const SCROLL_DOT_Y_RANGE = [0, 12, 0]
+
 export default function HeroSection() {
   const videoMp4Url = process.env.NEXT_PUBLIC_HERO_VIDEO_URL
   const videoWebmUrl = videoMp4Url?.replace('.mp4', '.webm')
   const [showVideo, setShowVideo] = useState(true)
   const [videoLoaded, setVideoLoaded] = useState(false)
   const videoRef = useRef<HTMLVideoElement>(null)
-  const timeoutRef = useRef<NodeJS.Timeout | null>(null)
 
   useEffect(() => {
+    if (videoLoaded) {
+      return
+    }
+
     // Set a timeout to show fallback if video doesn't load within 5 seconds
-    timeoutRef.current = setTimeout(() => {
-      if (!videoLoaded) {
-        setShowVideo(false)
-      }
-    }, 5000)
+    const timeout = setTimeout(() => {
+      setShowVideo(false)
+    }, VIDEO_LOAD_TIMEOUT)
 
     return () => {
-      if (timeoutRef.current) {
-        clearTimeout(timeoutRef.current)
-      }
+      clearTimeout(timeout)
     }
   }, [videoLoaded])
 
   const handleVideoLoaded = () => {
     setVideoLoaded(true)
-    if (timeoutRef.current) {
-      clearTimeout(timeoutRef.current)
-    }
   }
 
   const handleVideoError = () => {
     setShowVideo(false)
-    if (timeoutRef.current) {
-      clearTimeout(timeoutRef.current)
-    }
   }
 
   return (
@@ -94,8 +91,8 @@ export default function HeroSection() {
       <div className="container mx-auto px-4 py-20 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, translateY: 20 }}
+            animate={{ opacity: 1, translateY: 0 }}
             transition={{ duration: 0.6 }}
           >
             <h1 className="text-5xl md:text-7xl font-display font-bold text-white mb-6 drop-shadow-lg">
@@ -128,8 +125,8 @@ export default function HeroSection() {
             </motion.p>
 
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, translateY: 20 }}
+              animate={{ opacity: 1, translateY: 0 }}
               transition={{ delay: 0.6, duration: 0.6 }}
             >
               <CTAButton />
@@ -147,12 +144,12 @@ export default function HeroSection() {
       >
         <motion.div
           className="w-6 h-10 border-2 border-white/60 rounded-full flex justify-center"
-          animate={{ y: [0, 5, 0] }}
+          animate={{ translateY: SCROLL_INDICATOR_Y_RANGE }}
           transition={{ duration: 2, repeat: Infinity }}
         >
           <motion.div
             className="w-1 h-3 bg-white/60 rounded-full mt-2"
-            animate={{ y: [0, 12, 0] }}
+            animate={{ translateY: SCROLL_DOT_Y_RANGE }}
             transition={{ duration: 2, repeat: Infinity }}
           />
         </motion.div>
