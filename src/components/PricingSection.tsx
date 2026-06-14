@@ -29,38 +29,11 @@ export default function PricingSection() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-display font-bold text-athletic-dark mb-6">
-            Prijs & Benodigdheden
+            Benodigdheden
           </h2>
         </motion.div>
 
         <div className="max-w-4xl mx-auto">
-          {/* Pricing Card */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="bg-gradient-ocean text-white rounded-2xl p-8 md:p-12 shadow-ocean mb-8"
-          >
-            <div className="text-center">
-              <h3 className="text-3xl font-display font-bold mb-4">
-                10 wekelijkse lessen
-              </h3>
-              <div className="text-6xl font-bold mb-6">€280</div>
-              <div className="space-y-2 text-lg">
-                <p className="flex items-center justify-center gap-2">
-                  <span className="text-2xl">✓</span> Toegang tot het zwembad
-                </p>
-                <p className="flex items-center justify-center gap-2">
-                  <span className="text-2xl">✓</span> Begeleiding door Pieter &
-                  Ward
-                </p>
-                <p className="flex items-center justify-center gap-2">
-                  <span className="text-2xl">✓</span> Badmuts
-                </p>
-              </div>
-            </div>
-          </motion.div>
 
           <div className="grid md:grid-cols-2 gap-8">
             {/* Required Gear */}
