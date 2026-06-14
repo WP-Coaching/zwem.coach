@@ -1,4 +1,5 @@
 import HeroSection from '@/components/HeroSection'
+import SummerSchoolSection from '@/components/SummerSchoolSection'
 import ProgramSection from '@/components/ProgramSection'
 import CoachesSection from '@/components/CoachesSection'
 import ScheduleSection from '@/components/ScheduleSection'
@@ -11,6 +12,7 @@ export default function Home() {
       <HeroSection />
       <ProgramSection />
       <CoachesSection />
+      <SummerSchoolSection />
       <ScheduleSection />
       <PricingSection />
       <Footer />

@@ -62,8 +62,8 @@ test.describe('zwem.coach Homepage', () => {
 
   test('should display schedule information', async ({ page }) => {
     await expect(page.getByText(/10 wekelijkse sessies/i)).toBeVisible()
-    await expect(page.getByText(/Groep 1: Maandag/i)).toBeVisible()
-    await expect(page.getByText(/Groep 2: Woensdag/i)).toBeVisible()
+    await expect(page.getByText(/Groep 1: Maandag/i).first()).toBeVisible()
+    await expect(page.getByText(/Groep 2: Woensdag/i).first()).toBeVisible()
     await expect(page.getByText(/07:00 - 08:00/i).first()).toBeVisible()
   })
 
