@@ -3,8 +3,47 @@
 import { motion } from 'framer-motion'
 
 export default function ScheduleSection() {
+  const periods = [
+    {
+      id: 'sept-nov',
+      title: 'September - November',
+      subtitle: '10 wekelijkse lessen',
+      price: '€280',
+      priceSubtitle: 'incl. toegang tot zwembad & badmuts',
+      dates: 'Wekelijks van 7 september - 16 november',
+      datesSub: '(uitgezonderd herfstvakantie)',
+      mondayLink: process.env.NEXT_PUBLIC_STRIPE_SEPT_NOV_MONDAY_LINK,
+      wednesdayLink: process.env.NEXT_PUBLIC_STRIPE_SEPT_NOV_WEDNESDAY_LINK,
+      startDate: '2026-09-07',
+    },
+    {
+      id: 'jan-mrt',
+      title: 'Januari - Maart',
+      subtitle: '10 wekelijkse lessen',
+      price: null,
+      priceSubtitle: null,
+      dates: 'Wekelijks van 11 januari - 22 maart',
+      datesSub: '(uitgezonderd krokusvakantie)',
+      mondayLink: process.env.NEXT_PUBLIC_STRIPE_JAN_MRT_MONDAY_LINK,
+      wednesdayLink: process.env.NEXT_PUBLIC_STRIPE_JAN_MRT_WEDNESDAY_LINK,
+      startDate: '2027-01-11',
+    },
+    {
+      id: 'apr-jun',
+      title: 'April - Juni',
+      subtitle: '10 wekelijkse lessen',
+      price: null,
+      priceSubtitle: null,
+      dates: 'Wekelijks van 12 april - 21 juni',
+      datesSub: null,
+      mondayLink: process.env.NEXT_PUBLIC_STRIPE_APR_JUN_MONDAY_LINK,
+      wednesdayLink: process.env.NEXT_PUBLIC_STRIPE_APR_JUN_WEDNESDAY_LINK,
+      startDate: '2027-04-12',
+    }
+  ]
+
   return (
-    <section className="py-20 relative" id="schema">
+    <section className="py-20 relative bg-ocean-50/30" id="courses">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -14,112 +53,148 @@ export default function ScheduleSection() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-display font-bold text-athletic-dark mb-6">
-            Data, Tijden & Locatie
+            Trainingsreeksen 2026-2027
           </h2>
+          <p className="text-xl text-gray-700 max-w-3xl mx-auto">
+            3 verschillende periodes van telkens 10 lessen<br />
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=zwembad+'t+Zeepaardje,+Vilvoorde"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-athletic-primary hover:text-ocean-600 transition-colors underline decoration-ocean-200 underline-offset-4 hover:decoration-ocean-600"
+            >
+              Zwembad 't Zeepaardje, Vilvoorde
+            </a>
+          </p>
         </motion.div>
 
-        <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-8">
-          {/* Schedule Info */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="bg-white rounded-xl p-8 shadow-ocean"
-          >
-            <h3 className="text-2xl font-display font-semibold text-athletic-primary mb-6">
-              📅 Planning
-            </h3>
+        <div className="max-w-7xl mx-auto grid lg:grid-cols-3 gap-8">
+          {periods.map((period, index) => {
+            const isMondayOpen = !!period.mondayLink;
+            const isWednesdayOpen = !!period.wednesdayLink;
+            const isAnyOpen = isMondayOpen || isWednesdayOpen;
+            const isFuture = new Date() < new Date(period.startDate);
 
-            <div className="space-y-4 text-gray-700">
-              <div>
-                <h4 className="font-semibold text-athletic-dark mb-2">
-                  Structuur
-                </h4>
-                <p>10 wekelijkse sessies van 1 uur</p>
-              </div>
-
-              <div>
-                <h4 className="font-semibold text-athletic-dark mb-2">
-                  Periode
-                </h4>
-                <p>
-                  Start: week van 27 april
-                  <br />
-                  Einde: week van 29 juni
-                </p>
-              </div>
-
-              <div>
-                <h4 className="font-semibold text-athletic-dark mb-4">
-                  Lesmomenten
-                </h4>
-                <div className="space-y-3">
-                  <div className="bg-gradient-ocean text-white p-4 rounded-lg">
-                    <div className="font-semibold">Groep 1: maandag</div>
-                    <div className="text-sm opacity-90">07:00 - 08:00</div>
+            return (
+              <motion.div
+                key={period.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.2 }}
+                className="bg-white rounded-2xl shadow-ocean overflow-hidden border-2 border-transparent hover:border-ocean-200 transition-colors flex flex-col h-full"
+              >
+                <div className="bg-gradient-ocean p-8 text-white relative flex flex-col min-h-[280px]">
+                  <div>
+                    <h3 className="text-3xl lg:text-2xl xl:text-3xl font-display font-bold mb-2 relative z-10">
+                      {period.title}
+                    </h3>
+                    <p className="text-ocean-100 relative z-10">{period.subtitle}</p>
                   </div>
-                  <div className="bg-gradient-ocean text-white p-4 rounded-lg">
-                    <div className="font-semibold">Groep 2: woensdag</div>
-                    <div className="text-sm opacity-90">07:00 - 08:00</div>
+                  <div className="mt-auto pt-6">
+                    <div className="text-5xl font-bold mb-2 h-14 relative z-10">
+                      {period.price ? period.price : ''}
+                    </div>
+                    <p className="text-sm text-ocean-100 h-5 relative z-10">
+                      {period.priceSubtitle}
+                    </p>
                   </div>
                 </div>
-                <p className="text-sm text-gray-600 mt-3 italic">
-                  Je volgt 1x per week les in dezelfde groep
-                </p>
-              </div>
-            </div>
-          </motion.div>
+                
+                <div className="p-8 flex-1 flex flex-col">
+                  <div className="space-y-4 flex-1">
+                    <h4 className="font-semibold text-athletic-dark border-b pb-2">📅 Praktische info</h4>
+                    <div className="space-y-3 text-gray-700">
+                      <div className="flex items-start gap-3">
+                        <span className="inline-flex items-center justify-center h-6 flex-shrink-0">🗓️</span>
+                        <div className="flex flex-col">
+                          <span>{period.dates}</span>
+                          {period.datesSub && (
+                            <span className="text-gray-500">{period.datesSub}</span>
+                          )}
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <span className="inline-flex items-center justify-center h-6 flex-shrink-0">📍</span>
+                        <a
+                          href="https://www.google.com/maps/search/?api=1&query=zwembad+'t+Zeepaardje,+Vilvoorde"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="hover:text-athletic-primary transition-colors underline decoration-ocean-200 underline-offset-4 hover:decoration-athletic-primary"
+                        >
+                          zwembad 't Zeepaardje, Vilvoorde
+                        </a>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <span className="inline-flex items-center justify-center h-6 flex-shrink-0">👥</span>
+                        <span>max 10 zwemmers per lesgever</span>
+                      </div>
+                    </div>
+                  </div>
 
-          {/* Location Info */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="bg-white rounded-xl p-8 shadow-ocean"
-          >
-            <h3 className="text-2xl font-display font-semibold text-athletic-primary mb-6">
-              📍 Locatie
-            </h3>
+                  <div className="space-y-4 mt-8">
+                    <h4 className="font-semibold text-athletic-dark border-b pb-2">⏰ Lesmomenten</h4>
+                    <div className="space-y-2 text-gray-700">
+                      <div className="bg-ocean-50 p-3 rounded-lg border border-ocean-100">
+                        <span className="font-medium text-athletic-primary">Maandag:</span> 7u - 8u<br/>
+                        <span className="text-sm text-gray-500">Techniek & Trainingsgroep</span>
+                      </div>
+                      <div className="bg-ocean-50 p-3 rounded-lg border border-ocean-100">
+                        <span className="font-medium text-athletic-primary">Woensdag:</span> 7u - 8u<br/>
+                        <span className="text-sm text-gray-500">Techniek & Trainingsgroep</span>
+                      </div>
+                    </div>
+                  </div>
 
-            <div className="space-y-4 text-gray-700">
-              <div>
-                <h4 className="font-semibold text-athletic-dark mb-2">
-                  Zwembad
-                </h4>
-                <p className="text-lg">Zwembad 't Zeepaardje</p>
-              </div>
-
-              <div>
-                <h4 className="font-semibold text-athletic-dark mb-2">Adres</h4>
-                <p>
-                  Heldenplein 13
-                  <br />
-                  1800 Vilvoorde
-                </p>
-              </div>
-
-              {/* Map */}
-              <div className="mt-6">
-                <h4 className="font-semibold text-athletic-dark mb-3">Kaart</h4>
-                <div
-                  className="relative w-full rounded-lg overflow-hidden shadow-md"
-                  style={{ paddingBottom: '75%' }}
-                >
-                  <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2514.8521442812707!2d4.423732876545454!3d50.926452052977005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c3dd55ceea6099%3A0xdb83fcabeb3ab3a0!2sStedelijk%20zwembad%20%E2%80%98t%20Zeepaardje!5e0!3m2!1snl!2sbe!4v1762466568509!5m2!1snl!2sbe"
-                    className="absolute top-0 left-0 w-full h-full"
-                    style={{ border: 0 }}
-                    allowFullScreen
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                    title="Locatie Zwembad 't Zeepaardje"
-                  />
+                  <div className="pt-8 space-y-3">
+                    {!isAnyOpen ? (
+                      isFuture ? (
+                        <div className="block w-full bg-ocean-50 text-athletic-primary px-4 py-3 rounded-lg font-display font-semibold text-center border-2 border-ocean-100">
+                          Inschrijvingen openen binnenkort
+                        </div>
+                      ) : (
+                        <>
+                          <div className="block w-full bg-gray-100 text-gray-400 px-4 py-3 rounded-lg font-display font-semibold text-center border-2 border-gray-200 cursor-not-allowed">
+                            Maandag: Volzet
+                          </div>
+                          <div className="block w-full bg-gray-100 text-gray-400 px-4 py-3 rounded-lg font-display font-semibold text-center border-2 border-gray-200 cursor-not-allowed">
+                            Woensdag: Volzet
+                          </div>
+                        </>
+                      )
+                    ) : (
+                      <>
+                        {isMondayOpen ? (
+                          <a
+                            href={period.mondayLink}
+                            className="block w-full bg-gradient-ocean text-white px-4 py-3 rounded-lg font-display font-semibold text-center shadow-ocean hover:shadow-athletic transition-all duration-300 hover:scale-105"
+                          >
+                            Inschrijven Maandag
+                          </a>
+                        ) : (
+                          <div className="block w-full bg-gray-100 text-gray-400 px-4 py-3 rounded-lg font-display font-semibold text-center border-2 border-gray-200 cursor-not-allowed">
+                            Maandag: Volzet
+                          </div>
+                        )}
+                        {isWednesdayOpen ? (
+                          <a
+                            href={period.wednesdayLink}
+                            className="block w-full bg-gradient-ocean text-white px-4 py-3 rounded-lg font-display font-semibold text-center shadow-ocean hover:shadow-athletic transition-all duration-300 hover:scale-105"
+                          >
+                            Inschrijven Woensdag
+                          </a>
+                        ) : (
+                          <div className="block w-full bg-gray-100 text-gray-400 px-4 py-3 rounded-lg font-display font-semibold text-center border-2 border-gray-200 cursor-not-allowed">
+                            Woensdag: Volzet
+                          </div>
+                        )}
+                      </>
+                    )}
+                  </div>
                 </div>
-              </div>
-            </div>
-          </motion.div>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>

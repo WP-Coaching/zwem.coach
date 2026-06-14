@@ -11,14 +11,14 @@ export default function ProgramSection() {
     },
     {
       icon: '📊',
-      title: 'Alle niveaus',
+      title: 'Techniek & Training',
       description:
-        'Van absolute beginners tot ervaren zwemmers en triatleten die hun techniek willen verbeteren. We werken met een beginnersgroep en gevorderden.',
+        'Techniekgroep: Voor nieuwe deelnemers, focus op zwemtechnische vaardigheden. Trainingsgroep: Voor wie de reeks reeds doorlopen heeft, focus op techniek en snelheid.',
     },
     {
       icon: '👨‍👩‍👧‍👦',
       title: 'Kleine groepen',
-      description: 'Maximaal 15 personen per groep waardoor individuele bijsturing mogelijk blijft.',
+      description: 'Maximaal 10 zwemmers per lesgever waardoor individuele bijsturing mogelijk blijft.',
     },
   ]
 
