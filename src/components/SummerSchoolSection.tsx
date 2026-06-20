@@ -51,7 +51,7 @@ export default function SummerSchoolSection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="bg-white rounded-2xl shadow-ocean overflow-hidden border-2 border-transparent hover:border-ocean-200 transition-colors"
+            className="flex flex-col h-full bg-white rounded-2xl shadow-ocean overflow-hidden border-2 border-transparent hover:border-ocean-200 transition-colors"
           >
             <div className="bg-gradient-ocean p-8 text-white">
               <h3 className="text-3xl font-display font-bold mb-2">
@@ -62,18 +62,22 @@ export default function SummerSchoolSection() {
               <p className="text-sm text-ocean-100">incl. toegang tot zwembad</p>
             </div>
             
-            <div className="p-8 space-y-8">
-              <div className="space-y-4">
+            <div className="flex flex-col flex-grow p-8">
+              <div className="space-y-8 flex-grow">
+                <div className="space-y-4">
                 <h4 className="font-semibold text-athletic-dark border-b pb-2">📅 Praktische info</h4>
-                <div className="space-y-2 text-gray-700">
-                  <p className="flex items-start gap-2">
-                    <span className="mt-1">🗓️</span> 10 - 14 augustus
+                <div className="space-y-3 text-gray-700">
+                  <p className="flex items-start gap-3">
+                    <span className="shrink-0 w-6 h-6 flex items-center justify-center text-xl">🗓️</span>
+                    <span>10 - 14 augustus</span>
                   </p>
-                  <p className="flex items-start gap-2">
-                    <span className="mt-1">📍</span> zwembad 't Zeepaardje, Vilvoorde
+                  <p className="flex items-start gap-3">
+                    <span className="shrink-0 w-6 h-6 flex items-center justify-center text-xl">📍</span>
+                    <span>zwembad 't Zeepaardje, Vilvoorde</span>
                   </p>
-                  <p className="flex items-start gap-2">
-                    <span className="mt-1">👥</span> max 10 zwemmers per lesgever
+                  <p className="flex items-start gap-3">
+                    <span className="shrink-0 w-6 h-6 flex items-center justify-center text-xl">👥</span>
+                    <span>max 10 zwemmers per lesgever</span>
                   </p>
                 </div>
               </div>
@@ -94,14 +98,16 @@ export default function SummerSchoolSection() {
                 <h4 className="font-semibold text-athletic-dark border-b pb-2">🎒 Benodigdheden</h4>
                 <ul className="space-y-2">
                   {indoorGear.map((item, index) => (
-                    <li key={index} className="flex items-start gap-2 text-gray-700">
-                      <span className="text-athletic-accent mt-1">•</span> {item}
+                    <li key={index} className="flex items-start gap-3 text-gray-700">
+                      <span className="shrink-0 w-6 h-6 flex items-center justify-center text-athletic-accent text-xl leading-none">•</span>
+                      <span>{item}</span>
                     </li>
                   ))}
                 </ul>
               </div>
+              </div>
 
-              <div className="pt-4">
+              <div className="pt-8 mt-auto">
                 {isIndoorOpen ? (
                   <a
                     href={indoorLink}
@@ -124,7 +130,7 @@ export default function SummerSchoolSection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="bg-white rounded-2xl shadow-ocean overflow-hidden border-2 border-transparent hover:border-athletic-accent transition-colors relative"
+            className="flex flex-col h-full bg-white rounded-2xl shadow-ocean overflow-hidden border-2 border-transparent hover:border-athletic-accent transition-colors relative"
           >
             <div className="bg-athletic-dark p-8 text-white relative overflow-hidden">
               <div className="absolute top-0 right-0 w-32 h-32 bg-white opacity-5 rounded-bl-full"></div>
@@ -136,18 +142,22 @@ export default function SummerSchoolSection() {
               <p className="text-sm text-gray-400 relative z-10">incl. toegang tot domein</p>
             </div>
             
-            <div className="p-8 space-y-8">
-              <div className="space-y-4">
+            <div className="flex flex-col flex-grow p-8">
+              <div className="space-y-8 flex-grow">
+                <div className="space-y-4">
                 <h4 className="font-semibold text-athletic-dark border-b pb-2">📅 Praktische info</h4>
-                <div className="space-y-2 text-gray-700">
-                  <p className="flex items-start gap-2">
-                    <span className="mt-1">🗓️</span> 10 - 14 augustus
+                <div className="space-y-3 text-gray-700">
+                  <p className="flex items-start gap-3">
+                    <span className="shrink-0 w-6 h-6 flex items-center justify-center text-xl">🗓️</span>
+                    <span>10 - 14 augustus</span>
                   </p>
-                  <p className="flex items-start gap-2">
-                    <span className="mt-1">📍</span> Sport Vlaanderen Willebroek - Hazewinkel
+                  <p className="flex items-start gap-3">
+                    <span className="shrink-0 w-6 h-6 flex items-center justify-center text-xl">📍</span>
+                    <span>Sport Vlaanderen Willebroek - Hazewinkel</span>
                   </p>
-                  <p className="flex items-start gap-2">
-                    <span className="mt-1">👥</span> max 10 zwemmers per lesgever
+                  <p className="flex items-start gap-3">
+                    <span className="shrink-0 w-6 h-6 flex items-center justify-center text-xl">👥</span>
+                    <span>max 10 zwemmers per lesgever</span>
                   </p>
                 </div>
               </div>
@@ -168,14 +178,16 @@ export default function SummerSchoolSection() {
                 <h4 className="font-semibold text-athletic-dark border-b pb-2">🎒 Benodigdheden</h4>
                 <ul className="space-y-2">
                   {openWaterGear.map((item, index) => (
-                    <li key={index} className="flex items-start gap-2 text-gray-700">
-                      <span className="text-athletic-accent mt-1">•</span> {item}
+                    <li key={index} className="flex items-start gap-3 text-gray-700">
+                      <span className="shrink-0 w-6 h-6 flex items-center justify-center text-athletic-accent text-xl leading-none">•</span>
+                      <span>{item}</span>
                     </li>
                   ))}
                 </ul>
               </div>
+              </div>
 
-              <div className="pt-4">
+              <div className="pt-8 mt-auto">
                 {isOpenWaterOpen ? (
                   <a
                     href={openWaterLink}
