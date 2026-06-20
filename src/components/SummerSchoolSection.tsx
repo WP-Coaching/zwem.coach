@@ -73,11 +73,13 @@ export default function SummerSchoolSection() {
                   </p>
                   <p className="flex items-start gap-3">
                     <span className="shrink-0 w-6 h-6 flex items-center justify-center text-xl">📍</span>
-                    <span>zwembad 't Zeepaardje, Vilvoorde</span>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Zwembad+%27t+Zeepaardje%2C+Vilvoorde" target="_blank" rel="noopener noreferrer" className="hover:text-athletic-accent hover:underline transition-colors">
+                      Zwembad 't Zeepaardje, Vilvoorde
+                    </a>
                   </p>
                   <p className="flex items-start gap-3">
                     <span className="shrink-0 w-6 h-6 flex items-center justify-center text-xl">👥</span>
-                    <span>max 10 zwemmers per lesgever</span>
+                    <span>Max 10 zwemmers per lesgever</span>
                   </p>
                 </div>
               </div>
@@ -153,11 +155,13 @@ export default function SummerSchoolSection() {
                   </p>
                   <p className="flex items-start gap-3">
                     <span className="shrink-0 w-6 h-6 flex items-center justify-center text-xl">📍</span>
-                    <span>Sport Vlaanderen Willebroek - Hazewinkel</span>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Sport+Vlaanderen+Willebroek+-+Hazewinkel" target="_blank" rel="noopener noreferrer" className="hover:text-athletic-accent hover:underline transition-colors">
+                      Sport Vlaanderen Willebroek - Hazewinkel
+                    </a>
                   </p>
                   <p className="flex items-start gap-3">
                     <span className="shrink-0 w-6 h-6 flex items-center justify-center text-xl">👥</span>
-                    <span>max 10 zwemmers per lesgever</span>
+                    <span>Max 10 zwemmers per lesgever</span>
                   </p>
                 </div>
               </div>
