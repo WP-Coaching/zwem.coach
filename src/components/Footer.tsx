@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import CTAButton from './CTAButton'
+
 
 export default function Footer() {
   return (
@@ -12,22 +12,7 @@ export default function Footer() {
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-12"
-        >
-          <h2 className="text-3xl md:text-4xl font-display font-bold mb-6">
-            Klaar om te starten?
-          </h2>
-          <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-            Schrijf je nu in voor 10 weken crawl training met Olympische
-            expertise
-          </p>
-          <CTAButton />
-        </motion.div>
+
 
         <motion.div
           initial={{ opacity: 0 }}
