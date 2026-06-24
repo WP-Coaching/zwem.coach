@@ -17,11 +17,15 @@ export default function SummerSchoolSection() {
     'Safety buoy (eventueel via ons te verkrijgen)',
   ]
 
-  const indoorLink = process.env.NEXT_PUBLIC_STRIPE_SUMMERSCHOOL_INDOOR_LINK
-  const openWaterLink = process.env.NEXT_PUBLIC_STRIPE_SUMMERSCHOOL_OPENWATER_LINK
+  const indoorLinkG1 = process.env.NEXT_PUBLIC_STRIPE_SUMMERSCHOOL_INDOOR_G1_LINK
+  const indoorLinkG2 = process.env.NEXT_PUBLIC_STRIPE_SUMMERSCHOOL_INDOOR_G2_LINK
+  const openWaterLinkG1 = process.env.NEXT_PUBLIC_STRIPE_SUMMERSCHOOL_OPENWATER_G1_LINK
+  const openWaterLinkG2 = process.env.NEXT_PUBLIC_STRIPE_SUMMERSCHOOL_OPENWATER_G2_LINK
 
-  const isIndoorOpen = !!indoorLink
-  const isOpenWaterOpen = !!openWaterLink
+  const isIndoorG1Open = !!indoorLinkG1
+  const isIndoorG2Open = !!indoorLinkG2
+  const isOpenWaterG1Open = !!openWaterLinkG1
+  const isOpenWaterG2Open = !!openWaterLinkG2
 
   return (
     <section className="py-20 bg-ocean-50 relative" id="summer-school">
@@ -84,17 +88,7 @@ export default function SummerSchoolSection() {
                 </div>
               </div>
 
-              <div className="space-y-4">
-                <h4 className="font-semibold text-athletic-dark border-b pb-2">⏰ Twee groepen</h4>
-                <div className="space-y-2 text-gray-700">
-                  <div className="bg-ocean-50 p-3 rounded-lg border border-ocean-100">
-                    <span className="font-medium text-athletic-primary">Groep 1:</span> maandag t.e.m. vrijdag 7u - 8u
-                  </div>
-                  <div className="bg-ocean-50 p-3 rounded-lg border border-ocean-100">
-                    <span className="font-medium text-athletic-primary">Groep 2:</span> maandag t.e.m. vrijdag 9u - 10u
-                  </div>
-                </div>
-              </div>
+
 
               <div className="space-y-4">
                 <h4 className="font-semibold text-athletic-dark border-b pb-2">🎒 Benodigdheden</h4>
@@ -109,19 +103,51 @@ export default function SummerSchoolSection() {
               </div>
               </div>
 
-              <div className="pt-8 mt-auto">
-                {isIndoorOpen ? (
-                  <a
-                    href={indoorLink}
-                    className="block w-full bg-gradient-ocean text-white px-6 py-4 rounded-lg font-display font-semibold text-center shadow-ocean hover:shadow-athletic transition-all duration-300 hover:scale-105"
-                  >
-                    Inschrijven
-                  </a>
-                ) : (
-                  <div className="block w-full bg-gray-100 text-gray-400 px-6 py-4 rounded-lg font-display font-semibold text-center border-2 border-gray-200 cursor-not-allowed">
-                    Inschrijvingen gesloten
+              <div className="pt-8 mt-auto space-y-4">
+                <h4 className="font-semibold text-athletic-dark border-b pb-2">⏰ Kies je groep</h4>
+                <div className="space-y-3">
+                  <div className="bg-ocean-50 p-4 rounded-lg border border-ocean-100 flex flex-col gap-3 hover:border-ocean-300 transition-colors">
+                    <div className="flex justify-between items-start">
+                      <div>
+                        <div className="font-bold text-athletic-primary text-lg">Groep 1</div>
+                        <div className="text-gray-600 text-sm">maandag t.e.m. vrijdag • 7u - 8u</div>
+                      </div>
+                    </div>
+                    {isIndoorG1Open ? (
+                      <a
+                        href={indoorLinkG1}
+                        className="block w-full bg-gradient-ocean text-white px-4 py-2.5 rounded-lg font-display font-semibold text-center shadow-ocean hover:shadow-athletic transition-all duration-300 hover:scale-105"
+                      >
+                        Inschrijven
+                      </a>
+                    ) : (
+                      <div className="block w-full bg-gray-200 text-gray-500 px-4 py-2.5 rounded-lg font-display font-semibold text-center cursor-not-allowed">
+                        Volzet
+                      </div>
+                    )}
                   </div>
-                )}
+
+                  <div className="bg-ocean-50 p-4 rounded-lg border border-ocean-100 flex flex-col gap-3 hover:border-ocean-300 transition-colors">
+                    <div className="flex justify-between items-start">
+                      <div>
+                        <div className="font-bold text-athletic-primary text-lg">Groep 2</div>
+                        <div className="text-gray-600 text-sm">maandag t.e.m. vrijdag • 9u - 10u</div>
+                      </div>
+                    </div>
+                    {isIndoorG2Open ? (
+                      <a
+                        href={indoorLinkG2}
+                        className="block w-full bg-gradient-ocean text-white px-4 py-2.5 rounded-lg font-display font-semibold text-center shadow-ocean hover:shadow-athletic transition-all duration-300 hover:scale-105"
+                      >
+                        Inschrijven
+                      </a>
+                    ) : (
+                      <div className="block w-full bg-gray-200 text-gray-500 px-4 py-2.5 rounded-lg font-display font-semibold text-center cursor-not-allowed">
+                        Volzet
+                      </div>
+                    )}
+                  </div>
+                </div>
               </div>
             </div>
           </motion.div>
@@ -166,17 +192,7 @@ export default function SummerSchoolSection() {
                 </div>
               </div>
 
-              <div className="space-y-4">
-                <h4 className="font-semibold text-athletic-dark border-b pb-2">⏰ Twee groepen</h4>
-                <div className="space-y-2 text-gray-700">
-                  <div className="bg-gray-50 p-3 rounded-lg border border-gray-200">
-                    <span className="font-medium text-athletic-dark">Groep 1:</span> maandag t.e.m. vrijdag 12u - 13u
-                  </div>
-                  <div className="bg-gray-50 p-3 rounded-lg border border-gray-200">
-                    <span className="font-medium text-athletic-dark">Groep 2:</span> maandag t.e.m. vrijdag 13u - 14u
-                  </div>
-                </div>
-              </div>
+
 
               <div className="space-y-4">
                 <h4 className="font-semibold text-athletic-dark border-b pb-2">🎒 Benodigdheden</h4>
@@ -191,19 +207,51 @@ export default function SummerSchoolSection() {
               </div>
               </div>
 
-              <div className="pt-8 mt-auto">
-                {isOpenWaterOpen ? (
-                  <a
-                    href={openWaterLink}
-                    className="block w-full bg-athletic-dark text-white px-6 py-4 rounded-lg font-display font-semibold text-center shadow-md hover:shadow-athletic transition-all duration-300 hover:scale-105"
-                  >
-                    Inschrijven
-                  </a>
-                ) : (
-                  <div className="block w-full bg-gray-100 text-gray-400 px-6 py-4 rounded-lg font-display font-semibold text-center border-2 border-gray-200 cursor-not-allowed">
-                    Inschrijvingen gesloten
+              <div className="pt-8 mt-auto space-y-4">
+                <h4 className="font-semibold text-athletic-dark border-b pb-2">⏰ Kies je groep</h4>
+                <div className="space-y-3">
+                  <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 flex flex-col gap-3 hover:border-gray-300 transition-colors">
+                    <div className="flex justify-between items-start">
+                      <div>
+                        <div className="font-bold text-athletic-dark text-lg">Groep 1</div>
+                        <div className="text-gray-600 text-sm">maandag t.e.m. vrijdag • 12u - 13u</div>
+                      </div>
+                    </div>
+                    {isOpenWaterG1Open ? (
+                      <a
+                        href={openWaterLinkG1}
+                        className="block w-full bg-athletic-dark text-white px-4 py-2.5 rounded-lg font-display font-semibold text-center shadow-md hover:shadow-athletic transition-all duration-300 hover:scale-105"
+                      >
+                        Inschrijven
+                      </a>
+                    ) : (
+                      <div className="block w-full bg-gray-200 text-gray-500 px-4 py-2.5 rounded-lg font-display font-semibold text-center cursor-not-allowed">
+                        Volzet
+                      </div>
+                    )}
                   </div>
-                )}
+
+                  <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 flex flex-col gap-3 hover:border-gray-300 transition-colors">
+                    <div className="flex justify-between items-start">
+                      <div>
+                        <div className="font-bold text-athletic-dark text-lg">Groep 2</div>
+                        <div className="text-gray-600 text-sm">maandag t.e.m. vrijdag • 13u - 14u</div>
+                      </div>
+                    </div>
+                    {isOpenWaterG2Open ? (
+                      <a
+                        href={openWaterLinkG2}
+                        className="block w-full bg-athletic-dark text-white px-4 py-2.5 rounded-lg font-display font-semibold text-center shadow-md hover:shadow-athletic transition-all duration-300 hover:scale-105"
+                      >
+                        Inschrijven
+                      </a>
+                    ) : (
+                      <div className="block w-full bg-gray-200 text-gray-500 px-4 py-2.5 rounded-lg font-display font-semibold text-center cursor-not-allowed">
+                        Volzet
+                      </div>
+                    )}
+                  </div>
+                </div>
               </div>
             </div>
           </motion.div>
