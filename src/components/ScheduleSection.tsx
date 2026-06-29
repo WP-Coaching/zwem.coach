@@ -10,11 +10,11 @@ export default function ScheduleSection() {
       subtitle: '10 wekelijkse lessen',
       price: '€280',
       priceSubtitle: 'incl. toegang tot zwembad & badmuts',
-      dates: 'Wekelijks van 7 september - 16 november',
+      dates: 'Wekelijks van 14 september - 25 november',
       datesSub: '(uitgezonderd herfstvakantie)',
       mondayLink: process.env.NEXT_PUBLIC_STRIPE_SEPT_NOV_MONDAY_LINK,
       wednesdayLink: process.env.NEXT_PUBLIC_STRIPE_SEPT_NOV_WEDNESDAY_LINK,
-      startDate: '2026-09-07',
+      startDate: '2026-09-14',
     },
     {
       id: 'jan-mrt',
