@@ -23,7 +23,7 @@
   "devDependencies": {
     "@pellegrims/eslint-config-base": "^2.2.2",
     "@playwright/test": "^1.61.1",
-    "@types/node": "^20",
+    "@types/node": "^26",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "autoprefixer": "^10.5.2",
