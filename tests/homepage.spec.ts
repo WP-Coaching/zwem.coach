@@ -19,9 +19,13 @@ test.describe('zwem.coach Homepage', () => {
     ).toBeVisible()
   })
 
-  test('should have a CTA button in hero section', async ({ page }) => {
-    const ctaButton = page.getByRole('button', { name: /Inschrijven/i }).first()
-    await expect(ctaButton).toBeVisible()
+  test('should have two registration CTAs in the hero section', async ({ page }) => {
+    await expect(
+      page.getByRole('button', { name: /Summer School.*10 - 14 augustus/i })
+    ).toBeVisible()
+    await expect(
+      page.getByRole('button', { name: /Lessenreeks.*Vanaf september 2026/i })
+    ).toBeVisible()
   })
 
   test('should display all main sections', async ({ page }) => {
@@ -98,9 +102,8 @@ test.describe('zwem.coach Homepage', () => {
     await expect(
       page.getByRole('heading', { name: /zwem\.coach/i }).first()
     ).toBeVisible()
-    await expect(
-      page.getByRole('button', { name: /Inschrijven/i }).first()
-    ).toBeVisible()
+    await expect(page.getByRole('button', { name: /Summer School.*10 - 14 augustus/i })).toBeVisible()
+    await expect(page.getByRole('button', { name: /Lessenreeks.*Vanaf september 2026/i })).toBeVisible()
   })
 
   test('should have proper metadata', async ({ page }) => {
