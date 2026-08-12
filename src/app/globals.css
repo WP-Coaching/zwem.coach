@@ -1,6 +1,5 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+@config '../../tailwind.config.mjs';
 
 /* CSS Custom Properties for Athletic Theme */
 :root {
