@@ -14,6 +14,11 @@ export default function CTAButton() {
       detail: 'Vanaf september 2026',
       target: 'courses',
     },
+    {
+      label: 'Open water training',
+      detail: '26 augustus · 19u',
+      target: 'open-water-training',
+    },
   ]
 
   return (

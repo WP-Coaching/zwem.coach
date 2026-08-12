@@ -1,5 +1,6 @@
 import HeroSection from '@/components/HeroSection'
 import SummerSchoolSection from '@/components/SummerSchoolSection'
+import OpenWaterTrainingSection from '@/components/OpenWaterTrainingSection'
 import ProgramSection from '@/components/ProgramSection'
 import CoachesSection from '@/components/CoachesSection'
 import ScheduleSection from '@/components/ScheduleSection'
@@ -12,6 +13,7 @@ export default function Home() {
       <HeroSection />
       <CoachesSection />
       <SummerSchoolSection />
+      <OpenWaterTrainingSection />
       <ProgramSection />
       <ScheduleSection />
       <PricingSection />
