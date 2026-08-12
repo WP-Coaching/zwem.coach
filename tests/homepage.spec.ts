@@ -19,12 +19,15 @@ test.describe('zwem.coach Homepage', () => {
     ).toBeVisible()
   })
 
-  test('should have two registration CTAs in the hero section', async ({ page }) => {
+  test('should have registration CTAs in the hero section', async ({ page }) => {
     await expect(
       page.getByRole('button', { name: /Summer School.*10 - 14 augustus/i })
     ).toBeVisible()
     await expect(
       page.getByRole('button', { name: /Lessenreeks.*Vanaf september 2026/i })
+    ).toBeVisible()
+    await expect(
+      page.getByRole('button', { name: /Open water training.*26 augustus.*19u/i })
     ).toBeVisible()
   })
 
@@ -55,6 +58,24 @@ test.describe('zwem.coach Homepage', () => {
       page.getByRole('heading', { name: /Benodigdheden/i }).first()
     ).toBeVisible()
     await expect(page.getByText(/€280/i)).toBeVisible()
+  })
+
+  test('should display the open water training event', async ({ page }) => {
+    const event = page.locator('#open-water-training')
+
+    await expect(
+      event.getByRole('heading', { name: /Open water training/i })
+    ).toBeVisible()
+    await expect(event.getByText(/Woensdag 26 augustus/i)).toBeVisible()
+    await expect(event.getByText('19u00')).toBeVisible()
+    await expect(event.getByText(/Hazewinkel Willebroek/i)).toBeVisible()
+    await expect(event.getByText('€30', { exact: true })).toBeVisible()
+    await expect(event.getByText(/Wetsuit/i)).toBeVisible()
+    await expect(event.getByText(/Brilletje/i)).toBeVisible()
+    await expect(event.getByText(/Safety Buoy/i)).toBeVisible()
+    await expect(
+      event.getByRole('link', { name: /Inschrijven voor €30/i })
+    ).toHaveAttribute('href', 'https://buy.stripe.com/bJe7sL596alEa9J4sC3F60C')
   })
 
   test('should display program information correctly', async ({ page }) => {

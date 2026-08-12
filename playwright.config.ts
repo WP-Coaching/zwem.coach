@@ -28,6 +28,8 @@ export default defineConfig({
         'https://buy.stripe.com/your-monday-link',
       NEXT_PUBLIC_STRIPE_SEPT_NOV_WEDNESDAY_LINK:
         'https://buy.stripe.com/your-wednesday-link',
+      NEXT_PUBLIC_STRIPE_OPEN_WATER_TRAINING_LINK:
+        'https://buy.stripe.com/bJe7sL596alEa9J4sC3F60C',
     },
   },
 })
