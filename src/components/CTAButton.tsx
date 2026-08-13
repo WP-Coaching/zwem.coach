@@ -5,11 +5,6 @@ import { motion } from 'framer-motion'
 export default function CTAButton() {
   const ctas = [
     {
-      label: 'Summer School',
-      detail: '10 - 14 augustus',
-      target: 'summer-school',
-    },
-    {
       label: 'Lessenreeks',
       detail: 'Vanaf september 2026',
       target: 'courses',

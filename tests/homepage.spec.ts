@@ -21,9 +21,6 @@ test.describe('zwem.coach Homepage', () => {
 
   test('should have registration CTAs in the hero section', async ({ page }) => {
     await expect(
-      page.getByRole('button', { name: /Summer School.*10 - 14 augustus/i })
-    ).toBeVisible()
-    await expect(
       page.getByRole('button', { name: /Lessenreeks.*Vanaf september 2026/i })
     ).toBeVisible()
     await expect(
@@ -123,7 +120,6 @@ test.describe('zwem.coach Homepage', () => {
     await expect(
       page.getByRole('heading', { name: /zwem\.coach/i }).first()
     ).toBeVisible()
-    await expect(page.getByRole('button', { name: /Summer School.*10 - 14 augustus/i })).toBeVisible()
     await expect(page.getByRole('button', { name: /Lessenreeks.*Vanaf september 2026/i })).toBeVisible()
   })
 
