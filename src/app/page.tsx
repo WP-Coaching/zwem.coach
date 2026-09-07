@@ -1,5 +1,4 @@
 import HeroSection from '@/components/HeroSection'
-import OpenWaterTrainingSection from '@/components/OpenWaterTrainingSection'
 import ProgramSection from '@/components/ProgramSection'
 import CoachesSection from '@/components/CoachesSection'
 import ScheduleSection from '@/components/ScheduleSection'
@@ -11,7 +10,6 @@ export default function Home() {
     <main className="min-h-screen">
       <HeroSection />
       <CoachesSection />
-      <OpenWaterTrainingSection />
       <ProgramSection />
       <ScheduleSection />
       <PricingSection />

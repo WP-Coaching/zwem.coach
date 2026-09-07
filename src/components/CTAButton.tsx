@@ -9,15 +9,10 @@ export default function CTAButton() {
       detail: 'Vanaf september 2026',
       target: 'courses',
     },
-    {
-      label: 'Open water training',
-      detail: '26 augustus · 19u',
-      target: 'open-water-training',
-    },
   ]
 
   return (
-    <div className="flex flex-col sm:flex-row items-stretch justify-center gap-4">
+    <div className="flex justify-center">
       {ctas.map((cta) => (
         <motion.button
           key={cta.target}
