@@ -23,9 +23,6 @@ test.describe('zwem.coach Homepage', () => {
     await expect(
       page.getByRole('button', { name: /Lessenreeks.*Vanaf september 2026/i })
     ).toBeVisible()
-    await expect(
-      page.getByRole('button', { name: /Open water training.*26 augustus.*19u/i })
-    ).toBeVisible()
   })
 
   test('should display all main sections', async ({ page }) => {
@@ -57,22 +54,9 @@ test.describe('zwem.coach Homepage', () => {
     await expect(page.getByText(/€280/i)).toBeVisible()
   })
 
-  test('should display the open water training event', async ({ page }) => {
-    const event = page.locator('#open-water-training')
-
-    await expect(
-      event.getByRole('heading', { name: /Open water training/i })
-    ).toBeVisible()
-    await expect(event.getByText(/Woensdag 26 augustus/i)).toBeVisible()
-    await expect(event.getByText('19u00')).toBeVisible()
-    await expect(event.getByText(/Hazewinkel Willebroek/i)).toBeVisible()
-    await expect(event.getByText('€30', { exact: true })).toBeVisible()
-    await expect(event.getByText(/Wetsuit/i)).toBeVisible()
-    await expect(event.getByText(/Brilletje/i)).toBeVisible()
-    await expect(event.getByText(/Safety Buoy/i)).toBeVisible()
-    await expect(
-      event.getByRole('link', { name: /Inschrijven voor €30/i })
-    ).toHaveAttribute('href', 'https://buy.stripe.com/bJe7sL596alEa9J4sC3F60C')
+  test('should not display the expired open water training event', async ({ page }) => {
+    await expect(page.getByText(/Open water training/i)).toHaveCount(0)
+    await expect(page.getByText(/Hazewinkel Willebroek/i)).toHaveCount(0)
   })
 
   test('should display program information correctly', async ({ page }) => {
