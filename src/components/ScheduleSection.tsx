@@ -5,18 +5,6 @@ import { motion } from 'framer-motion'
 export default function ScheduleSection() {
   const periods = [
     {
-      id: 'sept-nov',
-      title: 'September - November',
-      subtitle: '10 wekelijkse lessen',
-      price: '€280',
-      priceSubtitle: 'incl. toegang tot zwembad & badmuts',
-      dates: 'Wekelijks van 14 september - 25 november',
-      datesSub: '(uitgezonderd herfstvakantie)',
-      mondayLink: process.env.NEXT_PUBLIC_STRIPE_SEPT_NOV_MONDAY_LINK,
-      wednesdayLink: process.env.NEXT_PUBLIC_STRIPE_SEPT_NOV_WEDNESDAY_LINK,
-      startDate: '2026-09-14',
-    },
-    {
       id: 'jan-mrt',
       title: 'Januari - Maart',
       subtitle: '10 wekelijkse lessen',
@@ -56,7 +44,7 @@ export default function ScheduleSection() {
             Trainingsreeksen 2026-2027
           </h2>
           <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-            3 verschillende periodes van telkens 10 lessen<br />
+            2 verschillende periodes van telkens 10 lessen<br />
             <a
               href="https://www.google.com/maps/search/?api=1&query=zwembad+'t+Zeepaardje,+Vilvoorde"
               target="_blank"
@@ -68,7 +56,7 @@ export default function ScheduleSection() {
           </p>
         </motion.div>
 
-        <div className="max-w-7xl mx-auto grid lg:grid-cols-3 gap-8">
+        <div className="max-w-5xl mx-auto grid lg:grid-cols-2 gap-8">
           {periods.map((period, index) => {
             const isMondayOpen = !!period.mondayLink;
             const isWednesdayOpen = !!period.wednesdayLink;

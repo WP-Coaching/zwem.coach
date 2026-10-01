@@ -2,6 +2,7 @@ import { test, expect } from '@playwright/test'
 
 test.describe('zwem.coach Homepage', () => {
   test.beforeEach(async ({ page }) => {
+    await page.clock.setFixedTime(new Date('2026-10-01T12:00:00Z'))
     await page.goto('/')
   })
 
@@ -15,13 +16,17 @@ test.describe('zwem.coach Homepage', () => {
       page.getByText(/Technieklessen Crawl Vilvoorde/i).first()
     ).toBeVisible()
     await expect(
-      page.getByText(/Met Olympische expertise van Pieter Timmers en Ward Pellegrims/i)
+      page.getByText(
+        /Met Olympische expertise van Pieter Timmers en Ward Pellegrims/i
+      )
     ).toBeVisible()
   })
 
-  test('should have registration CTAs in the hero section', async ({ page }) => {
+  test('should have registration CTAs in the hero section', async ({
+    page,
+  }) => {
     await expect(
-      page.getByRole('button', { name: /Lessenreeks.*Vanaf september 2026/i })
+      page.getByRole('button', { name: /Lessenreeks.*Vanaf januari 2027/i })
     ).toBeVisible()
   })
 
@@ -32,9 +37,7 @@ test.describe('zwem.coach Homepage', () => {
     ).toBeVisible()
 
     // Coaches section
-    await expect(
-      page.getByRole('heading', { name: /Coaches/i })
-    ).toBeVisible()
+    await expect(page.getByRole('heading', { name: /Coaches/i })).toBeVisible()
     await expect(
       page.getByRole('heading', { name: /Pieter Timmers/i })
     ).toBeVisible()
@@ -54,7 +57,9 @@ test.describe('zwem.coach Homepage', () => {
     await expect(page.getByText('€280', { exact: true }).first()).toBeVisible()
   })
 
-  test('should not display the expired open water training event', async ({ page }) => {
+  test('should not display the expired open water training event', async ({
+    page,
+  }) => {
     await expect(page.getByText(/Open water training/i)).toHaveCount(0)
     await expect(page.getByText(/Hazewinkel Willebroek/i)).toHaveCount(0)
   })
@@ -67,30 +72,50 @@ test.describe('zwem.coach Homepage', () => {
   })
 
   test('should display schedule information in cards', async ({ page }) => {
-    await expect(page.getByText(/3 verschillende periodes van telkens 10 lessen/i)).toBeVisible()
+    await expect(
+      page.getByText(/2 verschillende periodes van telkens 10 lessen/i)
+    ).toBeVisible()
     await expect(page.getByText(/Maandag:/i).first()).toBeVisible()
     await expect(page.getByText(/Woensdag:/i).first()).toBeVisible()
     await expect(page.getByText(/7u - 8u/i).first()).toBeVisible()
   })
 
-  test('should have active registration links for available periods', async ({ page }) => {
+  test('should have active registration links for available periods', async ({
+    page,
+  }) => {
     // Check that Monday and Wednesday have the correct Stripe links
-    const mondayLink = page.getByRole('link', { name: /Inschrijven Maandag/i }).first()
+    const mondayLink = page
+      .getByRole('link', { name: /Inschrijven Maandag/i })
+      .first()
     await expect(mondayLink).toBeVisible()
-    await expect(mondayLink).toHaveAttribute('href', 'https://buy.stripe.com/your-monday-link')
+    await expect(mondayLink).toHaveAttribute(
+      'href',
+      'https://buy.stripe.com/your-monday-link'
+    )
 
-    const wednesdayLink = page.getByRole('link', { name: /Inschrijven Woensdag/i }).first()
+    const wednesdayLink = page
+      .getByRole('link', { name: /Inschrijven Woensdag/i })
+      .first()
     await expect(wednesdayLink).toBeVisible()
-    await expect(wednesdayLink).toHaveAttribute('href', 'https://buy.stripe.com/your-wednesday-link')
+    await expect(wednesdayLink).toHaveAttribute(
+      'href',
+      'https://buy.stripe.com/your-wednesday-link'
+    )
   })
 
-  test('should show upcoming status for periods without links', async ({ page }) => {
-    // Periode 2 and 3 don't have links and are in the future, they should show 'Inschrijvingen openen binnenkort'
-    await expect(page.getByText(/Inschrijvingen openen binnenkort/i)).toHaveCount(2)
+  test('should show upcoming status for periods without links', async ({
+    page,
+  }) => {
+    // April–June has no configured links and has not started yet.
+    await expect(
+      page.getByText(/Inschrijvingen openen binnenkort/i)
+    ).toHaveCount(1)
   })
 
   test('should display location information', async ({ page }) => {
-    await expect(page.getByText(/zwembad 't Zeepaardje, Vilvoorde/i).first()).toBeVisible()
+    await expect(
+      page.getByText(/zwembad 't Zeepaardje, Vilvoorde/i).first()
+    ).toBeVisible()
   })
 
   test('should have contact information in footer', async ({ page }) => {
@@ -104,7 +129,9 @@ test.describe('zwem.coach Homepage', () => {
     await expect(
       page.getByRole('heading', { name: /zwem\.coach/i }).first()
     ).toBeVisible()
-    await expect(page.getByRole('button', { name: /Lessenreeks.*Vanaf september 2026/i })).toBeVisible()
+    await expect(
+      page.getByRole('button', { name: /Lessenreeks.*Vanaf januari 2027/i })
+    ).toBeVisible()
   })
 
   test('should have proper metadata', async ({ page }) => {

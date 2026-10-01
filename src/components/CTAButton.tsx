@@ -6,7 +6,7 @@ export default function CTAButton() {
   const ctas = [
     {
       label: 'Lessenreeks',
-      detail: 'Vanaf september 2026',
+      detail: 'Vanaf januari 2027',
       target: 'courses',
     },
   ]
