@@ -24,10 +24,12 @@ export default defineConfig({
     url: 'http://localhost:3000',
     reuseExistingServer: !process.env.CI,
     env: {
-      NEXT_PUBLIC_STRIPE_SEPT_NOV_MONDAY_LINK:
+      NEXT_PUBLIC_STRIPE_JAN_MRT_MONDAY_LINK:
         'https://buy.stripe.com/your-monday-link',
-      NEXT_PUBLIC_STRIPE_SEPT_NOV_WEDNESDAY_LINK:
+      NEXT_PUBLIC_STRIPE_JAN_MRT_WEDNESDAY_LINK:
         'https://buy.stripe.com/your-wednesday-link',
+      NEXT_PUBLIC_STRIPE_APR_JUN_MONDAY_LINK: '',
+      NEXT_PUBLIC_STRIPE_APR_JUN_WEDNESDAY_LINK: '',
     },
   },
 })
