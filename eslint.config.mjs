@@ -6,11 +6,13 @@ import nextConfig from 'eslint-config-next/core-web-vitals'
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
 const typescriptEslintPlugin = base.find(
-  (config) => config.plugins?.['@typescript-eslint'],
+  config => config.plugins?.['@typescript-eslint']
 )?.plugins['@typescript-eslint']
 
-const nextConfigWithSharedTypeScriptPlugin = nextConfig.map((config) => {
-  if (!config.plugins?.['@typescript-eslint']) return config
+const nextConfigWithSharedTypeScriptPlugin = nextConfig.map(config => {
+  if (!config.plugins?.['@typescript-eslint']) {
+    return config
+  }
 
   return {
     ...config,
@@ -30,7 +32,6 @@ const eslintConfig = [
     files: ['**/*.ts', '**/*.tsx'],
     languageOptions: {
       parserOptions: {
-        project: true,
         tsconfigRootDir: __dirname,
       },
     },
