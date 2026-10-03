@@ -2,12 +2,44 @@ version: 2
 updates:
   - package-ecosystem: "npm"
     directory: "/"
+    assignees:
+      - "robinpellegrims"
     schedule:
       interval: "weekly"
     groups:
-      npm-dependencies:
+      security-updates:
+        applies-to: security-updates
         patterns:
           - "*"
+        update-types:
+          - "minor"
+          - "patch"
+      frontend:
+        patterns:
+          - "next"
+          - "@next/*"
+          - "react"
+          - "react-dom"
+          - "@types/react"
+          - "@types/react-dom"
+          - "framer-motion"
+          - "tailwindcss"
+          - "@tailwindcss/*"
+          - "postcss"
+          - "autoprefixer"
+          - "@vercel/*"
+        update-types:
+          - "minor"
+          - "patch"
+      quality-and-test:
+        patterns:
+          - "eslint"
+          - "eslint-config-next"
+          - "@pellegrims/eslint-config-base"
+          - "typescript"
+          - "@types/node"
+          - "prettier"
+          - "@playwright/test"
         update-types:
           - "minor"
           - "patch"
@@ -17,9 +49,18 @@ updates:
 
   - package-ecosystem: "github-actions"
     directory: "/"
+    assignees:
+      - "robinpellegrims"
     schedule:
       interval: "weekly"
     groups:
+      security-updates:
+        applies-to: security-updates
+        patterns:
+          - "*"
+        update-types:
+          - "minor"
+          - "patch"
       github-actions:
         patterns:
           - "*"
