@@ -21,6 +21,7 @@
     "react-dom": "^19.3.0"
   },
   "devDependencies": {
+    "@typescript-eslint/parser": "^8.67.0",
     "@pellegrims/eslint-config-base": "^2.2.2",
     "@playwright/test": "^1.62.1",
     "@tailwindcss/postcss": "^4.3.3",
