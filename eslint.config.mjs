@@ -25,7 +25,13 @@ const nextConfigWithSharedTypeScriptPlugin = nextConfig.map(config => {
 
 const eslintConfig = [
   {
-    ignores: ['.next/**', 'node_modules/**', 'dist/**', 'playwright-report/**'],
+    ignores: [
+      '.next/**',
+      'node_modules/**',
+      'dist/**',
+      'playwright-report/**',
+      'open-next.config.ts',
+    ],
   },
   ...base,
   {

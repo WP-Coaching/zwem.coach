@@ -2,6 +2,8 @@
 
 import { motion } from 'framer-motion'
 
+const SCHEDULE_CARD_STAGGER_SECONDS = 0.2
+
 export default function ScheduleSection() {
   const periods = [
     {
@@ -69,7 +71,7 @@ export default function ScheduleSection() {
                 initial={{ opacity: 0, translateY: 20 }}
                 whileInView={{ opacity: 1, translateY: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
+                transition={{ duration: 0.6, delay: index * SCHEDULE_CARD_STAGGER_SECONDS }}
                 className="bg-white rounded-2xl shadow-ocean overflow-hidden border-2 border-transparent hover:border-ocean-200 transition-colors flex flex-col h-full"
               >
                 <div className="bg-gradient-ocean p-8 text-white relative flex flex-col min-h-[280px]">
