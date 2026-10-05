@@ -6,8 +6,10 @@ import Image from 'next/image'
 import CTAButton from './CTAButton'
 
 const VIDEO_LOAD_TIMEOUT = 5000
-const SCROLL_INDICATOR_Y_RANGE = [0, 5, 0]
-const SCROLL_DOT_Y_RANGE = [0, 12, 0]
+const SCROLL_INDICATOR_BOUNCE_DISTANCE_PX = 5
+const SCROLL_DOT_BOUNCE_DISTANCE_PX = 12
+const SCROLL_INDICATOR_Y_RANGE = [0, SCROLL_INDICATOR_BOUNCE_DISTANCE_PX, 0]
+const SCROLL_DOT_Y_RANGE = [0, SCROLL_DOT_BOUNCE_DISTANCE_PX, 0]
 
 export default function HeroSection() {
   const videoMp4Url = process.env.NEXT_PUBLIC_HERO_VIDEO_URL
