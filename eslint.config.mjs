@@ -8,9 +8,11 @@ const __dirname = dirname(__filename)
 const typescriptEslintPlugin = base.find(
   config => config.plugins?.['@typescript-eslint']
 )?.plugins['@typescript-eslint']
+const importEslintPlugin = base.find(config => config.plugins?.import)?.plugins
+  .import
 
-const nextConfigWithSharedTypeScriptPlugin = nextConfig.map(config => {
-  if (!config.plugins?.['@typescript-eslint']) {
+const nextConfigWithSharedPlugins = nextConfig.map(config => {
+  if (!config.plugins) {
     return config
   }
 
@@ -18,7 +20,10 @@ const nextConfigWithSharedTypeScriptPlugin = nextConfig.map(config => {
     ...config,
     plugins: {
       ...config.plugins,
-      '@typescript-eslint': typescriptEslintPlugin,
+      ...(config.plugins['@typescript-eslint'] && {
+        '@typescript-eslint': typescriptEslintPlugin,
+      }),
+      ...(config.plugins.import && { import: importEslintPlugin }),
     },
   }
 })
@@ -51,7 +56,7 @@ const eslintConfig = [
       ],
     },
   },
-  ...nextConfigWithSharedTypeScriptPlugin,
+  ...nextConfigWithSharedPlugins,
 ]
 
 export default eslintConfig
