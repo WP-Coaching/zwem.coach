@@ -21,7 +21,7 @@
     "react-dom": "^19.3.0"
   },
   "devDependencies": {
-    "@pellegrims/eslint-config-base": "^2.2.2",
+    "@pellegrims/eslint-config-base": "^3.0.0",
     "@playwright/test": "^1.63.0",
     "@tailwindcss/postcss": "^4.3.3",
     "@types/node": "^26",
@@ -30,15 +30,12 @@
     "@typescript-eslint/parser": "^8.67.0",
     "@typescript/native": "npm:typescript@^7.0.2",
     "autoprefixer": "^10.6.1",
-    "eslint": "^9.39.1",
+    "eslint": "^10.12.0",
     "eslint-config-next": "^16.4.0",
     "eslint-import-resolver-typescript": "^4.4.5",
     "postcss": "^8.5.28",
     "prettier": "^3.9.9",
     "tailwindcss": "^4.3.3",
     "typescript": "npm:@typescript/typescript6@^6.0.2"
-  },
-  "overrides": {
-    "eslint-plugin-functional": "^7.3.0"
   }
 }
