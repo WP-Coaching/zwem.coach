@@ -5,6 +5,10 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
+    "build:worker": "opennextjs-cloudflare build",
+    "preview:worker": "opennextjs-cloudflare preview",
+    "deploy:worker": "opennextjs-cloudflare deploy",
+    "test:worker": "bash scripts/test-worker.sh",
     "start": "next start",
     "lint": "eslint .",
     "format": "prettier --write .",
@@ -13,10 +17,11 @@
     "test:e2e:ui": "playwright test --ui"
   },
   "dependencies": {
+    "@opennextjs/cloudflare": "1.20.12",
     "@vercel/analytics": "^2.0.1",
     "@vercel/speed-insights": "^2.0.0",
     "framer-motion": "^14.2.0",
-    "next": "16.4.0",
+    "next": "16.4.2",
     "react": "^19.3.0",
     "react-dom": "^19.3.0"
   },
@@ -36,6 +41,7 @@
     "postcss": "^8.5.30",
     "prettier": "^3.9.10",
     "tailwindcss": "^4.3.3",
-    "typescript": "npm:@typescript/typescript6@^6.0.2"
+    "typescript": "npm:@typescript/typescript6@^6.0.2",
+    "wrangler": "4.151.1"
   }
 }

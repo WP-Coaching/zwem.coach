@@ -32,6 +32,12 @@ jobs:
       - name: Prettier check
         run: npm run format -- --check
 
+      - name: Build Cloudflare Worker
+        run: npm run build:worker
+
+      - name: Test Cloudflare Worker runtime
+        run: npm run test:worker
+
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps chromium
 

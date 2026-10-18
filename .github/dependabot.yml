@@ -1,72 +1,74 @@
 version: 2
 updates:
-  - package-ecosystem: "npm"
-    directory: "/"
+  - package-ecosystem: 'npm'
+    directory: '/'
     assignees:
-      - "robinpellegrims"
+      - 'robinpellegrims'
     schedule:
-      interval: "weekly"
+      interval: 'weekly'
     groups:
       security-updates:
         applies-to: security-updates
         patterns:
-          - "*"
+          - '*'
         update-types:
-          - "minor"
-          - "patch"
+          - 'minor'
+          - 'patch'
       frontend:
         patterns:
-          - "next"
-          - "@next/*"
-          - "react"
-          - "react-dom"
-          - "@types/react"
-          - "@types/react-dom"
-          - "framer-motion"
-          - "tailwindcss"
-          - "@tailwindcss/*"
-          - "postcss"
-          - "autoprefixer"
-          - "@vercel/*"
+          - 'next'
+          - '@next/*'
+          - '@opennextjs/*'
+          - 'wrangler'
+          - 'react'
+          - 'react-dom'
+          - '@types/react'
+          - '@types/react-dom'
+          - 'framer-motion'
+          - 'tailwindcss'
+          - '@tailwindcss/*'
+          - 'postcss'
+          - 'autoprefixer'
+          - '@vercel/*'
         update-types:
-          - "minor"
-          - "patch"
+          - 'minor'
+          - 'patch'
       quality-and-test:
         patterns:
-          - "eslint"
-          - "eslint-config-next"
-          - "@pellegrims/eslint-config-base"
-          - "typescript"
-          - "@types/node"
-          - "prettier"
-          - "@playwright/test"
+          - 'eslint'
+          - 'eslint-config-next'
+          - '@pellegrims/eslint-config-base'
+          - 'typescript'
+          - '@types/node'
+          - 'prettier'
+          - '@playwright/test'
         update-types:
-          - "minor"
-          - "patch"
+          - 'minor'
+          - 'patch'
     commit-message:
-      prefix: "build"
-      include: "scope"
+      prefix: 'build'
+      include: 'scope'
 
-  - package-ecosystem: "github-actions"
-    directory: "/"
+  - package-ecosystem: 'github-actions'
+    directory: '/'
     assignees:
-      - "robinpellegrims"
+      - 'robinpellegrims'
     schedule:
-      interval: "weekly"
+      interval: 'weekly'
     groups:
       security-updates:
         applies-to: security-updates
         patterns:
-          - "*"
+          - '*'
         update-types:
-          - "minor"
-          - "patch"
+          - 'minor'
+          - 'patch'
       github-actions:
         patterns:
-          - "*"
+          - '*'
         update-types:
-          - "minor"
-          - "patch"
+          - 'minor'
+          - 'patch'
     commit-message:
-      prefix: "build"
-      include: "scope"
+      prefix: 'build'
+      include: 'scope'

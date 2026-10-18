@@ -143,6 +143,30 @@ zwem.coach/
 
 ## Deployment
 
+### Cloudflare Workers
+
+Use the OpenNext adapter and Wrangler versions installed by `npm ci`:
+
+```bash
+npm ci
+npm run build:worker
+npm run preview:worker
+```
+
+CI also runs `npm run test:worker` after building. This starts the compiled Worker
+in the local Cloudflare runtime and checks the homepage, legal pages, and a 404.
+The Playwright suite runs separately against the Next.js development server.
+
+For Cloudflare Workers Builds, set the build command to `npm run build:worker`
+and the deploy command to `npm run deploy:worker`. For non-production branches,
+set the version upload command to `npx opennextjs-cloudflare upload`.
+
+Next.js 16.4 requires OpenNext 1.20.12 or newer to bundle
+`.next/server/preview-props.json`. Earlier adapter versions can build successfully
+but crash when the Worker starts. Keep the Next.js and adapter versions compatible
+when updating dependencies; the adapter's peer dependency specifies its supported
+Next.js range.
+
 ### Vercel (Recommended)
 
 1. Push your code to GitHub
