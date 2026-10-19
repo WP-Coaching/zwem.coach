@@ -34,7 +34,7 @@ This is the official website for zwem.coach, offering professional crawl swimmin
 
 ### Requirements
 
-- Node.js 20 or higher
+- Node.js 24 (see `.nvmrc`; use `nvm use` if you use nvm)
 - npm or yarn
 
 ### Steps
