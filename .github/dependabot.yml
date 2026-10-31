@@ -20,8 +20,6 @@ updates:
           - "@next/*"
           - "react"
           - "react-dom"
-          - "@types/react"
-          - "@types/react-dom"
           - "framer-motion"
           - "tailwindcss"
           - "@tailwindcss/*"
@@ -34,12 +32,16 @@ updates:
       quality-and-test:
         patterns:
           - "eslint"
-          - "eslint-config-next"
+          - "eslint-*"
+          - "@eslint/*"
+          - "@typescript-eslint/*"
           - "@pellegrims/eslint-config-base"
           - "typescript"
-          - "@types/node"
+          - "@typescript/*"
+          - "@types/*"
           - "prettier"
-          - "@playwright/test"
+          - "@playwright/*"
+          - "playwright"
         update-types:
           - "minor"
           - "patch"
