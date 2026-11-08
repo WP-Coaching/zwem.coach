@@ -14,21 +14,7 @@ updates:
         update-types:
           - "minor"
           - "patch"
-      frontend:
-        patterns:
-          - "next"
-          - "@next/*"
-          - "react"
-          - "react-dom"
-          - "framer-motion"
-          - "tailwindcss"
-          - "@tailwindcss/*"
-          - "postcss"
-          - "autoprefixer"
-          - "@vercel/*"
-        update-types:
-          - "minor"
-          - "patch"
+      # Tooling updates can be reviewed using the required CI checks.
       quality-and-test:
         patterns:
           - "eslint"
@@ -42,6 +28,14 @@ updates:
           - "prettier"
           - "@playwright/*"
           - "playwright"
+        update-types:
+          - "minor"
+          - "patch"
+      # Keep last: unmatched packages need website/deployment preview review.
+      # This includes frontend dependencies, @opennextjs/cloudflare and wrangler.
+      website-and-deployment:
+        patterns:
+          - "*"
         update-types:
           - "minor"
           - "patch"

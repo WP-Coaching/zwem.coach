@@ -34,7 +34,7 @@ This is the official website for zwem.coach, offering professional crawl swimmin
 
 ### Requirements
 
-- Node.js 20 or higher
+- Node.js 24 (also used by CI)
 - npm or yarn
 
 ### Steps
@@ -142,6 +142,16 @@ zwem.coach/
 ```
 
 ## Deployment
+
+### Cloudflare Workers
+
+Install dependencies with `npm ci`, then run
+`./node_modules/.bin/opennextjs-cloudflare build` to build the production Worker
+using OpenNext.
+
+Cloudflare Workers Builds uses the same command.
+OpenNext and Wrangler are pinned in `package.json` and `package-lock.json` so
+builds use the same toolchain locally and in Cloudflare.
 
 ### Vercel (Recommended)
 
